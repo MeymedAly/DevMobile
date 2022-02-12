@@ -18,10 +18,10 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039"
+        app:layout_constraintVertical_bias="0.045"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
@@ -33,10 +33,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.302"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.096">
+        app:layout_constraintVertical_bias="0.0">
 
         <EditText
             android:id="@+id/email"
@@ -58,8 +58,8 @@
             android:layout_marginEnd="5dp"
             android:gravity="center|start"
             android:text="Entrer Email S.V.P"
-            android:visibility="gone"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/motPasse"
@@ -83,8 +83,8 @@
             android:layout_marginEnd="5dp"
             android:gravity="center|start"
             android:text="Entrer un mot de passe S.V.P"
-            android:visibility="gone"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -95,9 +95,9 @@
         android:text="Envoyer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
