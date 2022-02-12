@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class WelcomeFragment extends Fragment implements MonInterface {
     //View rootView;
-    TextView get_email;
+    TextView get_email,get_welcome;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,6 +62,7 @@ public class WelcomeFragment extends Fragment implements MonInterface {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
+        get_welcome = view.findViewById(R.id.get_welcome);
         get_email = view.findViewById(R.id.get_email);
         Bundle bundle = this.getArguments();
         //String my_email = bundle.getString("Email");
@@ -70,7 +71,8 @@ public class WelcomeFragment extends Fragment implements MonInterface {
     }
 
     @Override
-    public void setResultat(String s) {
+    public void setResultat(String s,String w) {
+        get_welcome.setText(w);
         get_email.setText(s);
     }
 }

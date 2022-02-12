@@ -1,16 +1,19 @@
 package com.example.devmobile;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.support.v4.media.MediaMetadataCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +23,9 @@ import android.widget.EditText;
 public class LoginFragment extends Fragment{
     //View rootView;
     EditText motPasse,email;
+    static String constWelcom ="Bienvenue";
     Button button;
+    private boolean isRegistrationClickable = false;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -75,47 +80,22 @@ public class LoginFragment extends Fragment{
             public void onClick(View view) {
                 String editemail = email.getText().toString();
                 String mot = motPasse.getText().toString();
-                if (email.length()<0 && email.length()>8){
-                    email.requestFocus();
-                    email.setError("Le mot de passe doit etre sup de 8 et inf de 40 ");
-                }
-                else if(editemail.matches("[0-9]")){
-                    email.requestFocus();
-                    email.setError("doit contient");
-                }
-                else {
+                MainActivity activity = (MainActivity) getActivity();
+                String welcom = constWelcom.toString();
 
-                    MainActivity activity = (MainActivity) getActivity();
-                    activity.setResultat(editemail);
-                    LoginFragment loginFragment = new LoginFragment();
-                    FragmentManager fm = getParentFragmentManager();
-                    FragmentTransaction ft = fm.beginTransaction();
-                    ft.replace(R.id.fragmentContainerView,loginFragment);
-                    ft.addToBackStack(null);
-                }
-                if (motPasse.length()>0 && motPasse.length()<8){
-                    MainActivity activity = (MainActivity) getActivity();
-                    activity.setResultat(editemail);
-                    LoginFragment loginFragment = new LoginFragment();
-                    FragmentManager fm = getParentFragmentManager();
-                    FragmentTransaction ft = fm.beginTransaction();
-                    ft.replace(R.id.fragmentContainerView,loginFragment);
-                    ft.addToBackStack(null);
-                }
-                else {
-                    motPasse.requestFocus();
-                    motPasse.setError("Le mot de passe doit etre sup de 0 et inf de 8 ");
-                }
+//                LoginFragment loginFragment = new LoginFragment();
+//                FragmentManager fm = getParentFragmentManager();
+//                FragmentTransaction ft = fm.beginTransaction();
+//                ft.replace(R.id.fragmentContainerView,loginFragment);
+//                ft.addToBackStack(null);
+               boolean check = validation(editemail,mot);
+               if (check = true){
 
-
-
-//                boolean ckeck =  validation(editemail,mot);
-//                if (ckeck==true){
-//                   // ft.commit();
-//                }
-//                else {
-//
-//                }
+                   activity.setResultat(editemail,welcom);
+               }
+               else {
+                   Toast.makeText(getActivity(), "les donnes ne sont pas envoyer", Toast.LENGTH_SHORT).show();
+               }
             }
         });
         return view;
@@ -125,47 +105,32 @@ public class LoginFragment extends Fragment{
         email = view.findViewById(R.id.email);
         motPasse = view.findViewById(R.id.motPasse);
         button = view.findViewById(R.id.button);
+       // constWelcom = view.toString();
        // button.setOnClickListener(this);
     }
 
-/*
-    @Override
-    public void onClick(View view) {
-        if (view.getId()==R.id.button){
-            String emaile = email.getText().toString();
-            Bundle bundle = new Bundle();
-            bundle.putString("email", emaile);
-            FragmentManager fm = getParentFragmentManager();
-            FragmentTransaction ft =fm.beginTransaction();
-            WelcomeFragment welcomeFragment = new WelcomeFragment();
-            welcomeFragment.setArguments(bundle);
-            ft.replace(R.id.fragmentContainerView2,welcomeFragment);
-            ft.addToBackStack(null);
-
-            // getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,welcomeFragment).commit();
-
-            String emaill = email.getText().toString();
-            String mot = email.getText().toString();
-            boolean check = validation(emaill,mot);
-            if (check==true){
-                ft.commit();
-            }
-            else{
-
-            }
-        }
-    }*/
 
     private Boolean validation(String emaill, String mot) {
-        if (mot.length() < 8 && mot.length() > 40) {
-            motPasse.requestFocus();
-            motPasse.setError("Le mot de passe doit etre sup de 8 et inf de 40 ");
+        if (emaill.length()==0) {
+            email.requestFocus();
+            email.setError("Entrer un email S.V.P ");
             return false;
-        } else if (mot.matches("[0-9]")){
+        } else if (mot.length()==0){
             motPasse.requestFocus();
-            motPasse.setError("Un letre alphabetique et Nombres");
+            motPasse.setError("Entrer un mot de passe S.V.P");
             return false;
-        } else {
+        }
+        else if (!(mot.length() >8)){
+            motPasse.requestFocus();
+            motPasse.setError("Entrer un mot de passe sup 8 S.V.P");
+            return false;
+        }
+        else if (!(mot.length() <40)){
+            motPasse.requestFocus();
+            motPasse.setError("Entrer un mot de passe inf 40 S.V.P");
+            return false;
+        }
+        else {
             return true;
         }
     }

@@ -26,8 +26,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="318dp"
-        android:layout_height="136dp"
+        android:layout_width="323dp"
+        android:layout_height="198dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:orientation="vertical"
@@ -50,6 +50,17 @@
             android:inputType="textPersonName"
             android:padding="16dp" />
 
+        <TextView
+            android:id="@+id/tvEmailError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center|start"
+            android:text="Entrer Email S.V.P"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_dark" />
+
         <EditText
             android:id="@+id/motPasse"
             android:layout_width="match_parent"
@@ -63,6 +74,18 @@
             android:inputType="textPersonName"
             android:padding="16dp" />
 
+        <TextView
+            android:id="@+id/tvMotError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center|start"
+            android:text="Entrer un mot de passe S.V.P"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_dark" />
+
     </LinearLayout>
 
     <Button
@@ -75,6 +98,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.092" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

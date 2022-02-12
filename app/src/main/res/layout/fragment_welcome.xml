@@ -11,10 +11,10 @@
 
 
     <TextView
-        android:id="@+id/welcome"
+        android:id="@+id/get_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenue"
+        android:text=""
         android:textColor="@color/purple_700"
         android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintTop_toBottomOf="@+id/get_welcome"
+        app:layout_constraintVertical_bias="0.04000002" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

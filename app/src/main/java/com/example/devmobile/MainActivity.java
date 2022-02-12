@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements MonInterface {
@@ -33,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements MonInterface {
     }
 
     @Override
-    public void setResultat(String s) {
+    public void setResultat(String s,String w) {
 
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("Tag_Welcome");
         WelcomeFragment welcomeFragment = (WelcomeFragment) fragment;
-        welcomeFragment.setResultat(s);
+        welcomeFragment.setResultat(s,w);
     }
 }
