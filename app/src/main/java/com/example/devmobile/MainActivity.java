@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements MonInterface {
 //        FragmentTransaction ft = fm.beginTransaction();
 //        ft.replace(R.id.fragmentContainerView,loginFragment).commit();
 //        ft.addToBackStack(null);
+        //
         //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView,loginFragment).commit();
 
 
