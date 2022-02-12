@@ -130,6 +130,11 @@ public class LoginFragment extends Fragment{
             motPasse.setError("Entrer un mot de passe inf 40 S.V.P");
             return false;
         }
+        else if (!(mot.matches("^[a-z]"))){
+            motPasse.requestFocus();
+            motPasse.setError("au moins un chiffre,");
+            return false;
+        }
         else {
             return true;
         }
