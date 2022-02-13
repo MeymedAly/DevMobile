@@ -15,17 +15,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment{
-    //View rootView;
+
     EditText motPasse,email;
     static String constWelcom ="Bienvenue";
+    static String mymed ="meymed.aly@gmail.com";
+    static String psw ="11111aaaaB";
     Button button;
-    private boolean isRegistrationClickable = false;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -82,7 +85,8 @@ public class LoginFragment extends Fragment{
                 String mot = motPasse.getText().toString();
                 MainActivity activity = (MainActivity) getActivity();
                 String welcom = constWelcom.toString();
-
+                String eml=mymed.toString();
+                String ps=psw.toString();
 //                LoginFragment loginFragment = new LoginFragment();
 //                FragmentManager fm = getParentFragmentManager();
 //                FragmentTransaction ft = fm.beginTransaction();
@@ -90,12 +94,13 @@ public class LoginFragment extends Fragment{
 //                ft.addToBackStack(null);
                boolean check = validation(editemail,mot);
                if (check = true){
-
-                   activity.setResultat(editemail,welcom);
-               }
-               else {
-                   Toast.makeText(getActivity(), "les donnes ne sont pas envoyer", Toast.LENGTH_SHORT).show();
-               }
+                    if (editemail==eml && mot==ps) {
+                        activity.setResultat(mymed, welcom);
+                    }
+              }
+              // else {
+                  // Toast.makeText(getActivity(), "les donnes ne sont pas envoyer", Toast.LENGTH_SHORT).show();
+              // }
             }
         });
         return view;
@@ -130,11 +135,22 @@ public class LoginFragment extends Fragment{
             motPasse.setError("Entrer un mot de passe inf 40 S.V.P");
             return false;
         }
-        else if (!(mot.matches("^[a-z]"))){
+        else if (mot.matches("[^0-9]+")){
             motPasse.requestFocus();
-            motPasse.setError("au moins un chiffre,");
+            motPasse.setError("au moins un chiffre");
             return false;
         }
+        else if (mot.matches("[^a-z]+")){
+            motPasse.requestFocus();
+            motPasse.setError("au moins un lettre miniscule");
+            return false;
+        }
+        else if (mot.matches("[^A-Z]+")){
+            motPasse.requestFocus();
+            motPasse.setError("au moins un lettre majescule");
+            return false;
+        }
+
         else {
             return true;
         }
