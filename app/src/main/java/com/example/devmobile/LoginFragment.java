@@ -26,8 +26,8 @@ public class LoginFragment extends Fragment{
 
     EditText motPasse,email;
     static String constWelcom ="Bienvenue";
-    static String mymed ="meymed.aly@gmail.com";
-    static String psw ="11111aaaaB";
+    public static String mymed ="meymed.aly@gmail.com";
+    public static String psw ="11111aaaaB";
     Button button;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,19 +85,18 @@ public class LoginFragment extends Fragment{
                 String mot = motPasse.getText().toString();
                 MainActivity activity = (MainActivity) getActivity();
                 String welcom = constWelcom.toString();
-                String eml=mymed.toString();
-                String ps=psw.toString();
+
 //                LoginFragment loginFragment = new LoginFragment();
 //                FragmentManager fm = getParentFragmentManager();
 //                FragmentTransaction ft = fm.beginTransaction();
 //                ft.replace(R.id.fragmentContainerView,loginFragment);
 //                ft.addToBackStack(null);
                boolean check = validation(editemail,mot);
-               if (check = true){
-                    if (editemail==eml && mot==ps) {
-                        activity.setResultat(mymed, welcom);
+               //if (check = true){
+                   if (editemail== mymed && mot== psw) {
+                        activity.setResultat(editemail, welcom);
                     }
-              }
+              //}
               // else {
                   // Toast.makeText(getActivity(), "les donnes ne sont pas envoyer", Toast.LENGTH_SHORT).show();
               // }
@@ -120,7 +119,13 @@ public class LoginFragment extends Fragment{
             email.requestFocus();
             email.setError("Entrer un email S.V.P ");
             return false;
-        } else if (mot.length()==0){
+        }
+        else if (emaill.matches("[^a-zA-Z0-9]+@[a-z]")){
+            motPasse.requestFocus();
+            motPasse.setError("Entrer un mot de passe S.V.P");
+            return false;
+        }
+        else if (mot.length()==0){
             motPasse.requestFocus();
             motPasse.setError("Entrer un mot de passe S.V.P");
             return false;
@@ -150,7 +155,11 @@ public class LoginFragment extends Fragment{
             motPasse.setError("au moins un lettre majescule");
             return false;
         }
-
+        else if (mot.matches("[^(?=%#!/|`~.*[_@,;.()]).*$]+")){
+            motPasse.requestFocus();
+            motPasse.setError("au moins un symbole");
+            return false;
+        }
         else {
             return true;
         }
