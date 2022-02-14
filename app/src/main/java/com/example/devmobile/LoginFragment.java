@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment{
-
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     EditText motPasse,email;
     static String constWelcom ="Bienvenue";
     public static String mymed ="meymed.aly@gmail.com";
@@ -120,9 +120,10 @@ public class LoginFragment extends Fragment{
             email.setError("Entrer un email S.V.P ");
             return false;
         }
-        else if (emaill.matches("[^a-zA-Z0-9]+@[a-z]")){
-            motPasse.requestFocus();
-            motPasse.setError("Entrer un mot de passe S.V.P");
+        else if (emaill.matches(emailPattern)){
+           // ^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$
+            email.requestFocus();
+            email.setError("Entrer valide email ");
             return false;
         }
         else if (mot.length()==0){
