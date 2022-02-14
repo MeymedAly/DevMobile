@@ -117,8 +117,8 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="Login"
             android:layout_marginLeft="62dp"
@@ -129,7 +129,7 @@
             android:paddingTop="14dp"
             android:paddingBottom="14dp"
             android:textColor="#ffffff"
-            android:textSize="12sp"
+            android:textSize="8sp"
              />
 
     </LinearLayout>
