@@ -92,11 +92,11 @@ public class LoginFragment extends Fragment{
 //                ft.replace(R.id.fragmentContainerView,loginFragment);
 //                ft.addToBackStack(null);
                boolean check = validation(editemail,mot);
-               //if (check = true){
+               if (check){
                    if (editemail== mymed && mot== psw) {
                         activity.setResultat(editemail, welcom);
                     }
-              //}
+              }
               // else {
                   // Toast.makeText(getActivity(), "les donnes ne sont pas envoyer", Toast.LENGTH_SHORT).show();
               // }
@@ -120,7 +120,7 @@ public class LoginFragment extends Fragment{
             email.setError("Entrer un email S.V.P ");
             return false;
         }
-        else if (emaill.matches(emailPattern)){
+        else if (!emaill.matches(emailPattern)){
            // ^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$
             email.requestFocus();
             email.setError("Entrer valide email ");

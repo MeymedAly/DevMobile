@@ -124,18 +124,18 @@
         <Button
             android:id="@+id/button"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="18.7dp"
             android:layout_marginRight="62dp"
-            android:background="@color/purple_500"
+            android:background="@drawable/blue_fill__rounded_color"
             android:fontFamily="@font/poppins_medium"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:text="Envoyer"
             android:textColor="#ffffff"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
     </LinearLayout>
 
