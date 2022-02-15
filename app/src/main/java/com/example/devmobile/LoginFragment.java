@@ -93,9 +93,9 @@ public class LoginFragment extends Fragment{
 //                ft.addToBackStack(null);
                boolean check = validation(editemail,mot);
                if (check){
-                   if (editemail== mymed && mot== psw) {
+                   //if (editemail== mymed && mot== psw) {
                         activity.setResultat(editemail, welcom);
-                    }
+                   // }
               }
               // else {
                   // Toast.makeText(getActivity(), "les donnes ne sont pas envoyer", Toast.LENGTH_SHORT).show();
@@ -117,28 +117,28 @@ public class LoginFragment extends Fragment{
     private Boolean validation(String emaill, String mot) {
         if (emaill.length()==0) {
             email.requestFocus();
-            email.setError("Entrer un email S.V.P ");
+            email.setError("Entrer votre email S.V.P ");
             return false;
         }
         else if (!emaill.matches(emailPattern)){
            // ^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$
             email.requestFocus();
-            email.setError("Entrer valide email ");
+            email.setError("Email non validé ");
             return false;
         }
         else if (mot.length()==0){
             motPasse.requestFocus();
-            motPasse.setError("Entrer un mot de passe S.V.P");
+            motPasse.setError("Entrer votre mot de passe S.V.P");
             return false;
         }
         else if (!(mot.length() >8)){
             motPasse.requestFocus();
-            motPasse.setError("Entrer un mot de passe sup 8 S.V.P");
+            motPasse.setError("le mot de passe doit contenir plus 8 caractére");
             return false;
         }
         else if (!(mot.length() <40)){
             motPasse.requestFocus();
-            motPasse.setError("Entrer un mot de passe inf 40 S.V.P");
+            motPasse.setError("le mot de passe doit contenir au moins caractére");
             return false;
         }
         else if (mot.matches("[^0-9]+")){
